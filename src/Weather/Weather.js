@@ -1,10 +1,17 @@
 import React, { useState } from "react";
-import DisplayWeather from "./DisplayWeather";
-import { Drawer, Button, Typography } from 'antd';
-import "./weather.css";
 
+import DisplayWeather from "./DisplayWeather";
+
+import { Drawer, Button, Typography } from 'antd';
+
+
+import "./weather.css";
+require('dotenv').config();
+
+// REACT_APP_OPEN_WEATHER_API_KEY = REACT_APP_API_KEY
 function Weather() {
   const { Paragraph } = Typography;
+  const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
   const [weather, setWeather] = useState([]);
   const [form, setForm] = useState({
     lat: "",
@@ -23,7 +30,8 @@ function Weather() {
 
 
   // const apikey = "Enter Your APIKEY here";
-  const apikey = '5ce483bafb18f743f70d0e980c5ddf35'
+  // const apikey = REACT_APP_API_KEY;
+  // const apikey = '5ce483bafb18f743f70d0e980c5ddf35'
   async function weatherData(e) {
     e.preventDefault();
     if (form.lat == "") {
@@ -31,7 +39,7 @@ function Weather() {
     } else {
       const data = await fetch(
         //one call api for fetching data
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${form.lat}&lon=${form.lon}&exclude=${form.hourly, form.daily}&appid=${apikey}`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${form.lat}&lon=${form.lon}&exclude=${form.hourly, form.daily}&appid=${REACT_APP_API_KEY}`
       )
         .then((res) => res.json())
         .then((data) => data);

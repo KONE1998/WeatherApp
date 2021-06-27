@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./displayweather.css";
+
 import { Drawer, Button, Typography } from 'antd';
 function DisplayWeather(props) {
   const { data } = props;
