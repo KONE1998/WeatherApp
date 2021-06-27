@@ -31,7 +31,6 @@ function Weather() {
 
   // const apikey = "Enter Your APIKEY here";
   // const apikey = REACT_APP_API_KEY;
-  // const apikey = '5ce483bafb18f743f70d0e980c5ddf35'
   async function weatherData(e) {
     e.preventDefault();
     if (form.lat == "") {
