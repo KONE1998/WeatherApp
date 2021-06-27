@@ -1,0 +1,9 @@
+.body {
+  color: green;
+  font-size: 100px;
+}
+
+.word {
+  margin-left: 100px;
+  font-style: italic;
+}
